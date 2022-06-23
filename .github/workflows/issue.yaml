@@ -1,0 +1,20 @@
+name: 2 issues
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  firstjob:
+    steps:
+      - name: certified step
+        uses: actions/checkout@v2
+
+      - name: uncertified step
+        uses: bloobirds-it/action-transition-multiple-jira-issues@v1.1.0
+
+  secondjob:
+    steps:
+      - name: external workflow
+        uses: actions/starter-workflows/.github/workflows/label-support.yml@main
